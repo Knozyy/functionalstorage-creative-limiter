@@ -1,5 +1,7 @@
 # Functional Storage: Creative Limiter
 
+<img src="src/main/resources/fscreativelimiter.png" width="128" align="right" alt="Logo">
+
 A small Forge 1.20.1 add-on for [Functional Storage](https://www.curseforge.com/minecraft/mc-mods/functional-storage) that lets
 pack makers pick items the **Creative Vending Upgrade** won't make infinite.
 
@@ -55,4 +57,4 @@ The jar ends up in `build/libs/`.
 
 ## License
 
-MIT
+MIT. The logo is made from Functional Storage textures by Buuz135 and Rid, used under Functional Storage's MIT license.

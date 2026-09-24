@@ -8,6 +8,7 @@ modId = "fscreativelimiter"
 version = "${file.jarVersion}"
 displayName = "Functional Storage: Creative Limiter"
 displayURL = "https://github.com/Knozyy/functionalstorage-creative-limiter"
+logoFile = "fscreativelimiter.png"
 authors = "Knozyy"
 description = '''
 Lets pack makers list items that Functional Storage's Creative Vending Upgrade won't make infinite.
