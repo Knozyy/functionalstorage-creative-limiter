@@ -1,0 +1,49 @@
+buildscript {
+    repositories {
+        maven { url = 'https://maven.minecraftforge.net' }
+        mavenCentral()
+    }
+    dependencies {
+        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
+    }
+}
+
+apply plugin: 'net.minecraftforge.gradle'
+
+group = 'com.knozyy'
+version = "1.20.1-${mod_version}"
+
+java {
+    archivesBaseName = 'fscreativelimiter'
+    toolchain.languageVersion = JavaLanguageVersion.of(17)
+}
+
+minecraft {
+    mappings channel: 'official', version: '1.20.1'
+}
+
+repositories {
+    maven { url = 'https://www.cursemaven.com' }
+}
+
+dependencies {
+    minecraft 'net.minecraftforge:forge:1.20.1-47.3.0'
+    // Functional Storage 1.20.1-1.2.14; the mixin targets are unchanged since 1.20.1-1.2.0
+    compileOnly 'curse.maven:functional-storage-556861:8412552'
+}
+
+jar {
+    manifest {
+        attributes([
+                "Specification-Title"     : "fscreativelimiter",
+                "Specification-Vendor"    : "Knozyy",
+                "Specification-Version"   : "1",
+                "Implementation-Title"    : project.name,
+                "Implementation-Version"  : project.jar.archiveVersion,
+                "Implementation-Vendor"   : "Knozyy",
+                "MixinConfigs"            : "fscreativelimiter.mixins.json"
+        ])
+    }
+}
+
+jar.finalizedBy('reobfJar')

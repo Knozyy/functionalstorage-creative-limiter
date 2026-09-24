@@ -1,0 +1,36 @@
+modLoader = "javafml"
+loaderVersion = "[47,)"
+license = "MIT"
+issueTrackerURL = "https://github.com/Knozyy/functionalstorage-creative-limiter/issues"
+
+[[mods]]
+modId = "fscreativelimiter"
+version = "${file.jarVersion}"
+displayName = "Functional Storage: Creative Limiter"
+displayURL = "https://github.com/Knozyy/functionalstorage-creative-limiter"
+authors = "Knozyy"
+description = '''
+Lets pack makers list items that Functional Storage's Creative Vending Upgrade won't make infinite.
+Config: config/functionalstorage/functionalstorage-creative-limiter.toml
+'''
+
+[[dependencies.fscreativelimiter]]
+modId = "forge"
+mandatory = true
+versionRange = "[47,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.fscreativelimiter]]
+modId = "minecraft"
+mandatory = true
+versionRange = "[1.20.1,1.20.2)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.fscreativelimiter]]
+modId = "functionalstorage"
+mandatory = true
+versionRange = "[1.20.1-1.2.0,)"
+ordering = "AFTER"
+side = "BOTH"
