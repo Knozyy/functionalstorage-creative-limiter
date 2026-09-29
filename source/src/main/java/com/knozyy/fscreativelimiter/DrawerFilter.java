@@ -1,11 +1,11 @@
 package com.knozyy.fscreativelimiter;
 
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.HashSet;
 import java.util.List;
@@ -50,7 +50,7 @@ public class DrawerFilter {
 
     public static boolean isBlocked(ItemStack stack) {
         if (stack.isEmpty()) return false;
-        ResourceLocation id = ForgeRegistries.ITEMS.getKey(stack.getItem());
+        ResourceLocation id = BuiltInRegistries.ITEM.getKey(stack.getItem());
         // Matches on the item id only, so renamed/enchanted/NBT variants are blocked too
         if (id != null && (blockedIds.contains(id) || blockedNamespaces.contains(id.getNamespace()))) return true;
         for (TagKey<Item> tag : blockedTags) {

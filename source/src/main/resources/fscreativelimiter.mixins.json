@@ -2,9 +2,10 @@
   "required": true,
   "minVersion": "0.8.5",
   "package": "com.knozyy.fscreativelimiter.mixin",
-  "compatibilityLevel": "JAVA_17",
+  "compatibilityLevel": "JAVA_21",
   "mixins": [
     "BigInventoryHandlerMixin",
+    "DrawerStackItemHandlerMixin",
     "CompactingInventoryHandlerMixin",
     "CompactingStackItemHandlerMixin"
   ],

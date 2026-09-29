@@ -1,49 +1,47 @@
-buildscript {
-    repositories {
-        maven { url = 'https://maven.minecraftforge.net' }
-        mavenCentral()
-    }
-    dependencies {
-        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
-    }
+plugins {
+    id 'java'
+    id 'net.neoforged.moddev' version '2.0.75'
 }
-
-apply plugin: 'net.minecraftforge.gradle'
 
 group = 'com.knozyy'
-version = "1.20.1-${mod_version}"
+version = "1.21.1-${mod_version}"
 
-java {
-    archivesBaseName = 'fscreativelimiter'
-    toolchain.languageVersion = JavaLanguageVersion.of(17)
+base {
+    archivesName = 'fscreativelimiter'
 }
 
-minecraft {
-    mappings channel: 'official', version: '1.20.1'
+java.toolchain.languageVersion = JavaLanguageVersion.of(21)
+
+neoForge {
+    version = neo_version
+
+    mods {
+        fscreativelimiter {
+            sourceSet sourceSets.main
+        }
+    }
 }
 
 repositories {
     maven { url = 'https://www.cursemaven.com' }
+    maven { url = 'https://maven.blamejared.com/' }
 }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.20.1-47.3.0'
-    // Functional Storage 1.20.1-1.2.14; the mixin targets are unchanged since 1.20.1-1.2.0
-    compileOnly 'curse.maven:functional-storage-556861:8412552'
+    // Functional Storage 1.21.1-1.5.8 (CurseForge file 8459097).
+    compileOnly 'curse.maven:functional-storage-556861:8459097'
+    runtimeOnly 'curse.maven:functional-storage-556861:8459097'
+    // Functional Storage depends on Titanium; its public classes reference it.
+    compileOnly 'com.hrznstudio:titanium:1.21-4.0.34'
+    runtimeOnly 'com.hrznstudio:titanium:1.21-4.0.34'
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
 }
 
 jar {
     manifest {
-        attributes([
-                "Specification-Title"     : "fscreativelimiter",
-                "Specification-Vendor"    : "Knozyy",
-                "Specification-Version"   : "1",
-                "Implementation-Title"    : project.name,
-                "Implementation-Version"  : project.jar.archiveVersion,
-                "Implementation-Vendor"   : "Knozyy",
-                "MixinConfigs"            : "fscreativelimiter.mixins.json"
-        ])
+        attributes 'Implementation-Version': project.version
     }
 }
-
-jar.finalizedBy('reobfJar')

@@ -1,12 +1,11 @@
 package com.knozyy.fscreativelimiter;
 
-import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.fml.ModLoadingContext;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.config.ModConfig;
-import net.minecraftforge.fml.event.config.ModConfigEvent;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.fml.loading.FMLPaths;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.fml.ModContainer;
+import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.config.ModConfig;
+import net.neoforged.fml.event.config.ModConfigEvent;
+import net.neoforged.fml.loading.FMLPaths;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -19,15 +18,14 @@ public class CreativeLimiter {
     public static final String MOD_ID = "fscreativelimiter";
     public static final Logger LOGGER = LogManager.getLogger();
 
-    public CreativeLimiter() {
-        // Next to Functional Storage's own files in config/functionalstorage/; Forge doesn't create the folder itself
+    public CreativeLimiter(IEventBus modBus, ModContainer container) {
+        // Next to Functional Storage's own files in config/functionalstorage/.
         try {
             Files.createDirectories(FMLPaths.CONFIGDIR.get().resolve("functionalstorage"));
         } catch (IOException e) {
             LOGGER.error("Couldn't create the functionalstorage config folder", e);
         }
-        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, DrawerFilterConfig.SPEC, "functionalstorage/functionalstorage-creative-limiter.toml");
-        IEventBus modBus = FMLJavaModLoadingContext.get().getModEventBus();
+        container.registerConfig(ModConfig.Type.COMMON, DrawerFilterConfig.SPEC, "functionalstorage/functionalstorage-creative-limiter.toml");
         modBus.addListener((ModConfigEvent.Loading event) -> onConfig(event.getConfig()));
         modBus.addListener((ModConfigEvent.Reloading event) -> onConfig(event.getConfig()));
     }

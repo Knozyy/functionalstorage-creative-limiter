@@ -3,15 +3,10 @@ package com.knozyy.fscreativelimiter.mixin;
 import com.buuz135.functionalstorage.inventory.item.CompactingStackItemHandler;
 import com.knozyy.fscreativelimiter.CreativeRules;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Pseudo;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
-/**
- * Compacting drawers carried as items. This class only exists since Functional Storage 1.20.1-1.2.3,
- * @Pseudo lets older versions load without it.
- */
-@Pseudo
+/** Compacting drawers carried as items. */
 @Mixin(value = CompactingStackItemHandler.class, remap = false)
 public abstract class CompactingStackItemHandlerMixin {
 
