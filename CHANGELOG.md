@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased - Minecraft 1.21.1 (NeoForge)
+## 1.1.0 - Minecraft 1.21.1 (NeoForge)
 
 - Ported the add-on and config reload to NeoForge and Java 21.
 - Updated mixins for Functional Storage 1.21.1-1.5.8, including its incoming-stack slot limit and drawer item capability.

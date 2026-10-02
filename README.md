@@ -7,9 +7,9 @@ pack makers pick items the **Creative Vending Upgrade** won't make infinite.
 
 ## Download
 
-This branch is the 1.21.1 port. Its jar has not been released yet; the [Releases page](https://github.com/Knozyy/functionalstorage-creative-limiter/releases/latest) currently contains the Forge 1.20.1 build.
-
-When a 1.21.1 release is available, it will contain:
+This branch is the NeoForge 1.21.1 version. Get it from the
+**[1.1.0 NeoForge release](https://github.com/Knozyy/functionalstorage-creative-limiter/releases/tag/v1.1.0-neoforge)**
+(the latest release on the Releases page is the Forge 1.20.1 build):
 
 - **`fscreativelimiter-<version>.zip`**: the mod and its default config. Extract it into your instance folder
   (the one containing `mods` and `config`) and both files land in the right place.
