@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased - Minecraft 1.20.1 (Forge)
+## 1.1.0 - Minecraft 1.20.1 (Forge)
 
 - Added `/creativelimiter add|remove` (item in main hand) and `/creativelimiter list` for ops, also grantable through
   the `fscreativelimiter.command` permission node.
