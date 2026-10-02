@@ -22,6 +22,25 @@ public class DrawerFilter {
     private static volatile Set<TagKey<Item>> blockedTags = Set.of();
     private static volatile Set<String> blockedNamespaces = Set.of();
 
+    // True on a client playing on a remote server: the server's list is used instead of the local config file
+    private static volatile boolean serverListActive;
+
+    public static boolean isServerListActive() {
+        return serverListActive;
+    }
+
+    /** Client side: use the list the server sent, so drawers render with the rules the server applies. */
+    public static void applyServerList(List<String> entries) {
+        serverListActive = true;
+        reload(entries);
+    }
+
+    /** Client side, after leaving the server: back to the local config file. */
+    public static void clearServerList() {
+        serverListActive = false;
+        reload(DrawerFilterConfig.BLOCKED_ITEMS.get());
+    }
+
     public static void reload(List<? extends String> entries) {
         Set<ResourceLocation> ids = new HashSet<>();
         Set<TagKey<Item>> tags = new HashSet<>();

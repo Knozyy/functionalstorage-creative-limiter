@@ -40,6 +40,19 @@ Put one in, get one back.
 | `"modid:*"` | every item of a mod | `"mekanism:*"` |
 
 - Press **F3 + H** in game for advanced tooltips; hovering an item then shows its id.
+- Ops (permission level 2) can edit the list in game instead:
+
+  | Command | Does |
+  |---|---|
+  | `/creativelimiter add` | adds the item in your main hand |
+  | `/creativelimiter remove` | removes the item in your main hand |
+  | `/creativelimiter list` | shows every entry |
+
+  The commands save the config file, so changes survive restarts. `#tag` and `modid:*` entries can only be removed
+  by editing the file. On servers with a permission mod (LuckPerms, FTB Ranks, ...) the commands can be given to
+  admins who aren't op through the `fscreativelimiter.command` node.
+- On a server only the server's config counts. Players get the server's list when they join and again after every
+  change, so drawers show the right amounts without editing anyone's local config.
 - Changes apply as soon as the file is saved. `latest.log` prints a `Creative Limiter list loaded` line with the counts.
 - Normal and ender drawers decide per slot: only the listed item stops being infinite.
 - Compacting drawers stop being creative entirely if any tier of their chain is listed, so an infinite allowed tier

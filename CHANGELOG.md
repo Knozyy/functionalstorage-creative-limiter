@@ -1,5 +1,12 @@
 # Changelog
 
+## Unreleased - Minecraft 1.20.1 (Forge)
+
+- Added `/creativelimiter add|remove` (item in main hand) and `/creativelimiter list` for ops, also grantable through
+  the `fscreativelimiter.command` permission node.
+- The server now sends its list to players, so drawers on a server render with the server's rules instead of each
+  player's local config.
+
 ## 1.0.0 - Minecraft 1.20.1 (Forge)
 
 - First release.
